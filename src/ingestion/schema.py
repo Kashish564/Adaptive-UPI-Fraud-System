@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field, validator
 class Transaction(BaseModel):
     # --- 1. THE VIPS (CRITICAL COLUMNS) ---
     # We define these strictly. If "amount" is missing, the system crashes.
-    # If "amount" is a string "100.50", Pydantic converts it to float 100.5.
+    # If "amount" is a string "100.50", Pydantic converts it to float 100.5. change
     
     transaction_id: str
     event_timestamp: datetime  
