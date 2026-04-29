@@ -257,17 +257,6 @@ upi-fraud-engine/
 │       ├── single_predict.py          ← Score one transaction
 │       └── batch_predict_code.py      ← Score many transactions
 │
-├── docs/                              ← Detailed phase documentation
-│   ├── phase_1_*.md                   ← Data generation
-│   ├── PHASE_2_README.md              ← Ingestion
-│   ├── PHASE_3_README.md              ← Validation
-│   ├── phase4_final_readme.md         ← Feature engineering
-│   ├── PHASE_5_README.md              ← Model training ⭐ READ THIS
-│   ├── PHASE_6_README.md              ← Backtesting
-│   ├── phase7_readme.md               ← Deployment
-│   ├── PHASE_8_README.md              ← Production hardening
-│   └── phase_9_readme.md              ← Dynamic threshold
-│
 ├── evaluation/
 │   ├── backtest_results.json
 │   └── visualizations/
@@ -288,8 +277,8 @@ upi-fraud-engine/
 ### Backend (Render)
 ```
 Service:  Docker container
-URL:      https://upi-fraud-engine.onrender.com
-Docs:     https://upi-fraud-engine.onrender.com/docs
+URL:      
+Docs:     
 Memory:   ~500MB
 Uptime:   99.9% (auto-restarts on failure)
 Health:   /health endpoint (checked every 30s)
@@ -297,7 +286,7 @@ Health:   /health endpoint (checked every 30s)
 
 ### Frontend (Streamlit Cloud)
 ```
-URL:      https://upi-fraud-engine.streamlit.app
+URL:      
 Deploy:   Auto-deploy on git push
 Latency:  <500ms (typical)
 ```
@@ -352,25 +341,6 @@ Latency:  <500ms (typical)
 
 **Guarantee:** Production model is audited for label leakage, temporal correctness, and budget constraint compliance.
 
----
-
-## 📚 Full Documentation
-
-**Quick Start:** Read this README (10 min)  
-**Model Training:** [Phase 5 README](docs/PHASE_5_README.md) (20 min)  
-**Backtesting:** [Phase 6 README](docs/PHASE_6_README.md) (15 min)  
-**Deployment:** [Phase 7 README](docs/phase7_readme.md) (15 min)  
-**Complete Overview:** Read all 9 phase READMEs (3+ hours)
-
----
-
-## 🔗 Live Systems
-
-| Component | URL |
-|-----------|-----|
-| **API Docs** | https://upi-fraud-engine.onrender.com/docs |
-| **Web UI** | https://upi-fraud-engine.streamlit.app/ |
-| **Health Check** | https://upi-fraud-engine.onrender.com/health |
 
 ---
 
@@ -406,11 +376,7 @@ This project demonstrates:
 4. Add API authentication
 5. Implement rate limiting & caching
 
-### To Learn
-1. Read Phase 5 (model training story)
-2. Explore Phase 4 (feature engineering)
-3. Study Phase 6 (business metrics)
-4. Review test files (validation approaches)
+
 
 ### To Deploy Yourself
 ```bash
@@ -418,25 +384,6 @@ This project demonstrates:
 # Push to GitHub → auto-deploy to Render + Streamlit Cloud
 ```
 
----
-
-## 📞 Questions?
-
-**Why XGBoost in production vs two-stage?**
-- Same 0.8953 ROC-AUC performance
-- 2x latency reduction (256ms vs 400ms+)
-- Easier to monitor and maintain
-- Two-stage model still available for future use
-
-**Why did your first model get 0.9106 ROC-AUC?**
-- Included `fraud_pattern` column (synthetic-only leakage)
-- Real performance: 0.8918 (baseline XGBoost) / 0.8953 (two-stage)
-- Demonstrates importance of feature auditing
-
-**How do you handle concept drift?**
-- Dynamic threshold adapts to fraud score distribution
-- Plans to retrain monthly with latest fraud patterns
-- Monitor alert rate vs expected 0.5%
 
 ---
 
@@ -451,5 +398,4 @@ MIT - See LICENSE file
 **Status:** ✅ Production Live  
 **Last Updated:** January 26, 2026
 
-**[View on GitHub](https://github.com/yourusername/upi-fraud-engine)** | **[API Docs](https://upi-fraud-engine.onrender.com/docs)** | **[Live App](https://upi-fraud-engine.streamlit.app/)**
 
