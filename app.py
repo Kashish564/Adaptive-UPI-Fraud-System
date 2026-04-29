@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 
 # Configuration
-API_URL = "https://upi-fraud-engine.onrender.com"  
+API_URL = ""  
 
 st.set_page_config(page_title="Adaptive UPI Fraud System", page_icon="🚨", layout="wide")
 
