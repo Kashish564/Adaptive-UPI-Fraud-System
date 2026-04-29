@@ -6,9 +6,9 @@ from datetime import datetime
 # Configuration
 API_URL = "https://upi-fraud-engine.onrender.com"  
 
-st.set_page_config(page_title="UPI Fraud Detection", page_icon="🚨", layout="wide")
+st.set_page_config(page_title="Adaptive UPI Fraud System", page_icon="🚨", layout="wide")
 
-st.title("🚨 UPI Fraud Detection System")
+st.title("🚨 Adaptive UPI Fraud System")
 st.markdown("Real-time fraud scoring with <500ms latency")
 st.info(
     "This fraud detection system mirrors real fintech architectures: "
