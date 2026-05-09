@@ -2,7 +2,10 @@
 
 >A production-grade real-time fraud detection system for UPI transactions, built with end-to-end machine learning engineering — from data generation to deployment.
 
-
+### 🔗 Live Deployments
+* **Interactive Dashboard (Frontend):** [upi-fraud-engine.streamlit.app](https://adaptive-upi-fraud-system-3knaq9sy76k8uypkawqf6m.streamlit.app/)
+* **API Documentation (Backend):** [https://adaptive-upi-fraud-system-1.onrender.com/docs]
+* **System Health:** [https://adaptive-upi-fraud-system-1.onrender.com/health]
 
 ---
 
@@ -77,21 +80,19 @@ Optimized for business constraints (alert budget)
 **Key Finding:** Two-stage model achieves **+0.35% improvement** by capturing anomalies Stage 2 misses. However, production uses XGBoost alone for operational simplicity.
 
 ---
+### The 9-Phase Engineering Lifecycle
 
-## 🔍 What We Built (9 Phases)
-
-| Phase | What | Key Metric | Output |
-|-------|------|-----------|--------|
-| **1** | Data Generation | 1.1M synthetic UPI txns | 3.61% fraud rate ✓ |
-| **2** | Ingestion Pipeline | Batch + stream validated | 1000/1000 match ✓ |
-| **3** | Data Validation | Great Expectations tests | All 1.1M pass ✓ |
-| **4** | Feature Engineering | 482 production features | Zero label leakage ✓ |
-| **5** | Model Training | Two-stage A/B testing | 0.8953 ROC-AUC ✓ |
-| **6** | Backtesting | Day-by-day replay | 92% precision @ 0.5% ✓ |
-| **7** | Deployment | Docker + FastAPI | Live endpoints ✓ |
-| **8** | Production Hardening | Health checks + monitoring | 256ms latency ✓ |
-| **9** | Dynamic Threshold | Adaptive percentile-based | Threshold: 0.5→0.67 ✓ |
-
+| Phase | Focus | Key Engineering Achievement |
+| :--- | :--- | :--- |
+| **1. Data Gen** | Synthetic Data | Built 1.1M point-in-time correct UPI txns with synthetic fraud rings and 48-hour label delays. |
+| **2. Ingestion** | Batch vs. Stream | Engineered parallel ingestion paths and mathematically proved 100% parity to prevent train-serve skew. |
+| **3. Validation** | Great Expectations | Built automated gatekeepers to reject malformed data and enforce temporal causality (`label_time > event_time`). |
+| **4. Features** | Feature Engineering | Scaled 482 features. Pivoted from O(N²) time-based windows to O(N log N) event-based windows to prevent memory explosions. |
+| **5. Modeling** | XGBoost & Leakage | Conducted an A/B test and leakage audit, discovering and fixing a synthetic artifact that artificially inflated ROC-AUC. |
+| **6. Backtesting**| Day-by-Day Replay | Simulated production with an operations constraint (0.5% alert budget), yielding real business metrics over raw ML metrics. |
+| **7. Deployment** | API & Docker | Containerized the FastAPI backend with in-memory model and feature store for <500ms latency. |
+| **8. Frontend** | Streamlit UI | Deployed an interactive dashboard to visualize real-time fraud scoring, gauges, and API metrics. |
+| **9. Thresholds** | Dynamic Alerting | Replaced static 0.5 thresholds with a rolling 99.5th percentile calculation to adapt to live fraud clusters. |
 ---
 
 ## 📊 Performance
@@ -131,8 +132,8 @@ Demo uses cold-start to show the real challenge.
 
 ```bash
 # Clone & setup
-git clone https://github.com/yourusername/upi-fraud-engine.git
-cd upi-fraud-engine
+git clone https://github.com/Kashish564/Adaptive-UPI-Fraud-System.git
+cd Adaptive-UPI-Fraud-System
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
@@ -274,7 +275,7 @@ upi-fraud-engine/
 │       └── financial_impact.png
 │
 ├── app.py                             ← Streamlit UI
-├── dockerfile                         ← Docker image
+├── Dockerfile                         ← Docker image
 ├── requirements.txt                   ← Dependencies
 └── LICENSE
 ```
@@ -305,10 +306,10 @@ Latency:  <500ms (typical)
      Client (Browser)
            ↓
     Streamlit Cloud
-    (upi-fraud-engine.streamlit.app)
+    (Adaptive-UPI-Fraud-System.streamlit.app)
            ↓
     Render (FastAPI)
-    (upi-fraud-engine.onrender.com)
+    (Adaptive-UPI-Fraud-System.onrender.com)
            ↓
     Load Balancer → Auto-scaling container
            ↓
@@ -349,51 +350,6 @@ Latency:  <500ms (typical)
 | **Budget adherence** | Daily | ✅ Never exceeded |
 
 **Guarantee:** Production model is audited for label leakage, temporal correctness, and budget constraint compliance.
-
-
----
-
-## 📊 482 Features Breakdown
-
-- **Vesta Pre-computed Features (400):** Fraud signals from transaction metadata
-- **Historical Features (70):** Fraud counts, approval rates over 7d/30d windows
-- **Velocity Features (10):** Transaction counts/amounts over time
-- **Anomaly Score (1):** Stage 1 Isolation Forest output
-- **Temporal Features (1):** Derived from event timestamp
-
-All features are production-available (tested against real UPI schema).
-
----
-
-## 🎓 What You'll Learn
-
-This project demonstrates:
-- ✅ **ML Engineering:** Data pipelines, feature engineering, temporal correctness
-- ✅ **Production Systems:** API design, monitoring, deployment, scaling
-- ✅ **Business Metrics:** Budget constraints, cost-benefit analysis, precision-recall tradeoffs
-- ✅ **Validation:** Leakage testing, backtesting, A/B testing
-- ✅ **Real-World Challenges:** Imbalanced data, distribution shift, operational constraints
-
----
-
-## 🚀 Next Steps
-
-### To Extend
-1. Add real transaction data (replace synthetic)
-2. Implement batch inference scoring
-3. Set up monitoring (Prometheus + Grafana)
-4. Add API authentication
-5. Implement rate limiting & caching
-
-
-
-### To Deploy Yourself
-```bash
-# Fork repo → update API URL in app.py
-# Push to GitHub → auto-deploy to Render + Streamlit Cloud
-```
-
-
 ---
 
 ## 📄 License
@@ -404,7 +360,6 @@ MIT - See LICENSE file
 
 **Built with:** Python 3.11 | FastAPI | XGBoost | Streamlit | Docker  
 **Tested on:** 1.1M transactions | 482 features | 9 phases  
-**Status:** ✅ Production Live  
-**Last Updated:** January 26, 2026
+
 
 
