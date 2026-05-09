@@ -3,9 +3,9 @@
 >A production-grade real-time fraud detection system for UPI transactions, built with end-to-end machine learning engineering — from data generation to deployment.
 
 ### 🔗 Live Deployments
-* **Interactive Dashboard (Frontend):** [upi-fraud-engine.streamlit.app](https://adaptive-upi-fraud-system-3knaq9sy76k8uypkawqf6m.streamlit.app/)
-* **API Documentation (Backend):** [https://adaptive-upi-fraud-system-1.onrender.com/docs]
-* **System Health:** [https://adaptive-upi-fraud-system-1.onrender.com/health]
+* **Interactive Dashboard (Frontend):** [Adaptive-UPI-Fraud-System.streamlit.app](https://adaptive-upi-fraud-system-3knaq9sy76k8uypkawqf6m.streamlit.app/)
+* **API Documentation (Backend):** [Adaptive-UPI-Fraud-System.onrender.com/docs](https://adaptive-upi-fraud-system-1.onrender.com/docs)
+* **System Health:** [Adaptive-UPI-Fraud-System.onrender.com/health](https://adaptive-upi-fraud-system-1.onrender.com/health)
 
 ---
 
