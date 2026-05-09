@@ -1,21 +1,30 @@
-# 🛡️ UPI Fraud Detection Engine
+# 🛡️ Adaptive UPI Fraud System
 
-> Production-grade fraud detection system for UPI payments. Built with rigorous ML engineering practices: temporal correctness, label leakage auditing, budget-constrained optimization, and day-by-day backtesting.
+>A production-grade real-time fraud detection system for UPI transactions, built with end-to-end machine learning engineering — from data generation to deployment.
 
-**Status:** ✅ Production Live | **API:** [docs](https://upi-fraud-engine.onrender.com/docs) | **UI:** [app](https://upi-fraud-engine.streamlit.app/) | **Performance:** 0.8953 ROC-AUC
+
 
 ---
 
 ## 🎯 Problem Statement
-### At transaction time T, using ONLY information available strictly before T, decide whether to raise a fraud alert under a fixed daily alert budget.
+At transaction time T, using only past data, decide:
 
-**Fraud in UPI payments requires real-time decisions with:**
-- **High precision** (false alerts waste investigation resources)
-- **Production guarantees** (temporal correctness, no label leakage)
-- **Adaptive thresholds** (fraud patterns shift daily)
-- **Budget constraints** (can only alert on 0.5% of transactions daily)
+👉 Should this transaction be flagged as fraud under a strict daily alert budget?
 
-**Our Solution:** A two-stage architecture tested rigorously, with a production-optimized XGBoost model deployed for simplicity and performance.
+⚠️ Real-World Constraints
+⏱ Real-time inference (<500ms)
+📉 Only 0.5% transactions can be flagged daily
+🚫 No future data leakage (temporal correctness)
+🔄 Fraud patterns change dynamically
+🧠 Labels arrive late (hours–days delay)
+💡 Solution Overview
+
+This project implements a production-ready fraud detection pipeline that:
+
+Detects fraud in real-time
+Maintains strict temporal correctness
+Uses adaptive thresholding (dynamic percentile)
+Optimized for business constraints (alert budget)
 
 ---
 

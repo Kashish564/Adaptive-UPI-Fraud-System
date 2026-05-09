@@ -7,7 +7,7 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy only necessary code
+# Copy only necessary code only
 COPY src ./src
 COPY models ./models
 COPY config ./config
